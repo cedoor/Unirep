@@ -462,13 +462,13 @@ export default class UserState extends Synchronizer {
         const circuitInputs = stringifyBigInts({
             GST_path_elements: GSTProof.siblings,
             GST_path_index: GSTProof.pathIndices,
-            GST_root: GSTree.root,
+            // GST_root: GSTree.root,
             identity_nullifier: this.id.identityNullifier,
             identity_trapdoor: this.id.trapdoor,
             user_tree_root: userStateTree.root,
             nonce: epochKeyNonce,
             epoch: epoch,
-            epoch_key: epochKey,
+            // epoch_key: epochKey,
         })
 
         const results = await this.prover.genProofAndPublicSignals(
@@ -499,7 +499,7 @@ export default class UserState extends Synchronizer {
             identity_trapdoor: this.id.trapdoor,
             GST_path_elements: GSTreeProof.siblings,
             GST_path_index: GSTreeProof.pathIndices,
-            GST_root: GSTreeRoot,
+            // GST_root: GSTreeRoot,
         })
 
         // Circuit outputs
@@ -814,7 +814,7 @@ export default class UserState extends Synchronizer {
             identity_trapdoor: this.id.trapdoor,
             GST_path_elements: GSTreeProof.siblings,
             GST_path_index: GSTreeProof.pathIndices,
-            GST_root: GSTreeRoot,
+            // GST_root: GSTreeRoot,
             epk_path_elements: epochKeyPathElements,
             hash_chain_results: finalHashChain,
             blinded_hash_chain_results: blindedHashChain,
@@ -952,7 +952,7 @@ export default class UserState extends Synchronizer {
             user_tree_root: userStateTree.root,
             GST_path_index: GSTreeProof.pathIndices,
             GST_path_elements: GSTreeProof.siblings,
-            GST_root: GSTreeRoot,
+            // GST_root: GSTreeRoot,
             attester_id: attesterId,
             pos_rep: posRep,
             neg_rep: negRep,
@@ -960,8 +960,9 @@ export default class UserState extends Synchronizer {
             sign_up: signUp,
             UST_path_elements: USTPathElements,
             rep_nullifiers_amount: repNullifiersAmount,
-            selectors: selectors,
-            rep_nonce: nonceList,
+            start_rep_nonce: nonceStarter,
+            // selectors: selectors,
+            // rep_nonce: nonceList,
             min_rep: minRep === undefined ? 0 : minRep,
             prove_graffiti: proveGraffiti === undefined ? 0 : proveGraffiti,
             graffiti_pre_image:
@@ -1003,13 +1004,13 @@ export default class UserState extends Synchronizer {
 
         const circuitInputs = stringifyBigInts({
             epoch: epoch,
-            epoch_key: epochKey,
+            // epoch_key: epochKey,
             identity_nullifier: this.id.identityNullifier,
             identity_trapdoor: this.id.trapdoor,
             user_tree_root: userStateTree.root,
             GST_path_index: GSTreeProof.pathIndices,
             GST_path_elements: GSTreeProof.siblings,
-            GST_root: GSTreeRoot,
+            // GST_root: GSTreeRoot,
             attester_id: attesterId,
             pos_rep: posRep,
             neg_rep: negRep,

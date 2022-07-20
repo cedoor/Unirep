@@ -543,8 +543,8 @@ contract Unirep is IUnirep, zkSNARKHelper, VerifySignature {
 
     /**
      * User submit the latest user state transition proof
-     * publicSignals[0] = [ newGlobalStateTreeLeaf ]
-     * publicSignals[1] = [ fromGlobalStateTree ]
+     * publicSignals[0] = [ fromGlobalStateTree ]
+     * publicSignals[1] = [ newGlobalStateTreeLeaf ]
      * publicSignals[2] = [ epkNullifiers ]
      * publicSignals[2 + numEpochKeyNoncePerEpoch] = [ transitionFromEpoch ]
      * publicSignals[3 +  numEpochKeyNoncePerEpoch:
@@ -585,7 +585,7 @@ contract Unirep is IUnirep, zkSNARKHelper, VerifySignature {
             proof,
             proofIndexRecords
         );
-        emit UserStateTransitioned(currentEpoch, publicSignals[0], _proofIndex);
+        emit UserStateTransitioned(currentEpoch, publicSignals[1], _proofIndex);
 
         getProofIndex[proofNullifier] = _proofIndex;
         proofIndex++;

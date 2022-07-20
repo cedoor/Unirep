@@ -26,8 +26,8 @@ export class UserTransitionProof extends BaseProof {
         super(_publicSignals, _proof, prover)
         this.numEpochKeyNoncePerEpoch = numEpochKeyNoncePerEpoch
         this.idx = {
-            newGlobalStateTreeLeaf: 0,
-            fromGlobalStateTree: 1,
+            fromGlobalStateTree: 0,
+            newGlobalStateTreeLeaf: 1,
             epkNullifiers: [2, this.numEpochKeyNoncePerEpoch + 2],
             transitionFromEpoch: this.numEpochKeyNoncePerEpoch + 2,
             blindedUserStates: [
@@ -35,10 +35,10 @@ export class UserTransitionProof extends BaseProof {
                 this.numEpochKeyNoncePerEpoch + 5,
             ],
             blindedHashChains: [
-                6 + this.numEpochKeyNoncePerEpoch,
-                7 + 2 * this.numEpochKeyNoncePerEpoch,
+                5 + this.numEpochKeyNoncePerEpoch,
+                5 + 2 * this.numEpochKeyNoncePerEpoch,
             ],
-            fromEpochTree: 7 + 2 * this.numEpochKeyNoncePerEpoch,
+            fromEpochTree: 5 + 2 * this.numEpochKeyNoncePerEpoch,
         }
         this.newGlobalStateTreeLeaf =
             _publicSignals[this.idx.newGlobalStateTreeLeaf]
